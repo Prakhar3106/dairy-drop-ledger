@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "events": {
+    "project.login_failed": {
+      "event_schema_version": 1,
+      "description": "A sign-in attempt failed.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "method",
+          "reason"
+        ],
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": [
+              "email",
+              "mobile"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "enum": [
+              "validation",
+              "invalid_credentials",
+              "disabled",
+              "other"
+            ]
+          }
+        }
+      }
+    },
+    "project.login_succeeded": {
+      "event_schema_version": 1,
+      "description": "A user signed in successfully with email or mobile and password.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "method"
+        ],
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": [
+              "email",
+              "mobile"
+            ]
+          }
+        }
+      }
+    },
+    "project.logout_failed": {
+      "event_schema_version": 1,
+      "description": "A sign-out attempt returned an error.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "enum": [
+              "dashboard",
+              "farmer_portal",
+              "settings",
+              "admin",
+              "no_access"
+            ]
+          }
+        }
+      }
+    },
+    "project.logout_succeeded": {
+      "event_schema_version": 1,
+      "description": "A user signed out successfully.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "enum": [
+              "dashboard",
+              "farmer_portal",
+              "settings",
+              "admin",
+              "no_access"
+            ]
+          }
+        }
+      }
+    },
+    "project.registration_failed": {
+      "event_schema_version": 1,
+      "description": "A registration attempt was rejected (validation, duplicate email or other error).",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "reason"
+        ],
+        "properties": {
+          "reason": {
+            "type": "string",
+            "enum": [
+              "validation",
+              "duplicate_email",
+              "other"
+            ]
+          }
+        }
+      }
+    },
+    "project.registration_succeeded": {
+      "event_schema_version": 1,
+      "description": "A new centre owner account was created from the register page.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "signed_in"
+        ],
+        "properties": {
+          "signed_in": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

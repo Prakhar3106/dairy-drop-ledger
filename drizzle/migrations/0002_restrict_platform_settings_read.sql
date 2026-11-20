@@ -1,0 +1,2 @@
+DROP POLICY IF EXISTS "Settings: signed-in read" ON public.platform_settings;
+CREATE POLICY "Settings: admin read" ON public.platform_settings FOR SELECT TO authenticated USING (public.is_super_admin());
